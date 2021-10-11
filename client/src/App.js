@@ -2,12 +2,12 @@ import React from 'react';
 import './App.css';
 import { Route } from 'react-router-dom';
 import Home from './routers/Home';
-import Jangbi from './Pages/Jangbi';
+import {Models} from './Pages/Jangbi/Models';
 import SignIn from './Pages/Auth/SignIn';
 import SignUp from './Pages/Auth/SignUp';
 import styled from 'styled-components';
-import View from './Pages/Board/View';
-import RegisterPage from './Pages/Board/RegisterPage';
+import Add from './Components/WriteModal';
+
 
 const Div = styled.div``;
 const App = () => {
@@ -16,8 +16,8 @@ const App = () => {
       <Route exact path="/">
         <Home />
       </Route>
-      <Route path="/jangbi">
-        <Jangbi />
+      <Route path="/models">
+        <Models />
       </Route>
       <Route path="/signin">
         <SignIn />
@@ -25,12 +25,9 @@ const App = () => {
       <Route path="/signup">
         <SignUp />
       </Route>
-      <Route path= "/view">
-        <View />
-        </Route>
-        <Route path= "/registerpage">
-        <RegisterPage />
-        </Route>
+        <Route path = "/add">
+          <Add />
+          </Route>
     </Div>
   );
 };

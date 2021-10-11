@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Logo from './Logo';
 import { useHistory } from 'react-router-dom';
+
 const Navbar = styled.div`
   font-size: 30px;
   position: fixed; /*항상고정*/
