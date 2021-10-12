@@ -28,7 +28,7 @@ app.get("/", (req, res) => {
   res.send("헬로월드다");
 });
 
-<<<<<<< HEAD
+
 //jangbiList 로직
 const {jangbis} = require('./data.json');
 app.get('/jangbis', (req, res)=>{
@@ -46,16 +46,13 @@ app.get('/jangbis/:id', (req, res)=>{
   res.send(filterJangbi[0])
 })
 
-app.set("port", process.env.PORT || 3000);
+app.set("port", process.env.PORT || 8000);
 app.listen(app.get("port"), () => {
   console.log(app.get("port"), "번 에서 스타트중");
 });
 
 
 module.exports = app;
-=======
-app.set("port", process.env.PORT || 8000);
-app.listen(app.get("port"), () => {
-  console.log(app.get("port"), "번 에서 스타트중");
-});
->>>>>>> 0db29a440d136a9e6af64b9a7ec01e078fa4a24f
+
+
+

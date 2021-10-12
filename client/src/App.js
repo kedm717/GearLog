@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import { Route } from 'react-router-dom';
 import Home from './routers/Home';
-import {Models} from './Pages/Jangbi/Models';
 import SignIn from './Pages/Auth/SignIn';
 import SignUp from './Pages/Auth/SignUp';
 import Nav from './Components/Nav';
@@ -12,6 +11,7 @@ import { useHistory, Link } from 'react-router-dom';
 import axios from 'axios';
 import Logitech from './routers/Model/Gear/Logitech';
 import styled from 'styled-components';
+import Models from './routers/Model/Models'
 
 
 //유저정보를 데이터베이스에 저장하고 인증할수있는 코드를짜야된다
