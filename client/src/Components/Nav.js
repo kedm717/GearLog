@@ -8,7 +8,6 @@ const Navbar = styled.div`
   font-size: 20px;
   font-weight: 500;
   margin-top: 50px;
-
   position: fixed;
   width: 100%;
   display: flex;
