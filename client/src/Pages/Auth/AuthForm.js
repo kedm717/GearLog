@@ -1,9 +1,10 @@
 //회원가입과 로그인폼 컴포넌트
-import React from 'react';
+
 import styled from 'styled-components';
 import Button from '../../Components/common/Button';
 import { Link } from 'react-router-dom';
 import Logo from '../../Components/Logo';
+import { emailCheck, passwordCheck } from '../../Modules/Verifi';
 
 const AuthFormBlock = styled.div`
   h3 {
@@ -28,7 +29,7 @@ const StyledInput = styled.input`
   outline: none;
   width: 100%;
   &:focus {
-    color: yellow;
+    color: black;
     border-bottom: 1px solid gray;
   }
   & + & {
@@ -54,8 +55,41 @@ const textMap = {
   logo: '간편로그인',
 };
 
-const AuthForm = ({ type, form, onChange, onSubmit }) => {
+const AuthForm = ({
+  type,
+  postSignUp,
+  postLogin,
+  email,
+  password,
+  onChange,
+  newPassword,
+  username,
+}) => {
   const text = textMap[type];
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    if (type === 'login') {
+      postLogin();
+    }
+
+    if (type === 'register') {
+      if (!emailCheck(email)) {
+        alert('적합한 이메일이 아닙니다');
+        return false;
+      }
+
+      if (password !== newPassword) {
+        alert('패스워드 그거 맞아?');
+        return false;
+      }
+      if (!passwordCheck(password)) {
+        alert('특수문자,영문, 숫자 필수 포함 6~21자리');
+        return false;
+      }
+      postSignUp();
+    }
+  };
 
   return (
     <AuthFormBlock>
@@ -75,22 +109,44 @@ const AuthForm = ({ type, form, onChange, onSubmit }) => {
       <form onSubmit={onSubmit}>
         <StyledInput
           autoComplete="username"
-          name="username"
+          name="email"
+          type="text"
           placeholder="이메일"
+          value={email}
+          required
+          onChange={onChange}
         />
+
         <StyledInput
           autoComplete="new-password"
           name="password"
           placeholder="비밀번호"
           type="password"
+          value={password}
+          required
+          onChange={onChange}
         />
         {type === 'register' && (
-          <StyledInput
-            autoComplete="new-password"
-            name="password"
-            placeholder="비밀번호확인"
-            type="password"
-          />
+          <>
+            <StyledInput
+              autoComplete="new-password"
+              name="newpassword"
+              placeholder="비밀번호확인"
+              type="password"
+              value={newPassword}
+              required
+              onChange={onChange}
+            />
+            <StyledInput
+              autoComplete="new-password"
+              name="nickname"
+              placeholder="닉네임"
+              type="text"
+              value={username}
+              required
+              onChange={onChange}
+            />
+          </>
         )}
         <Button
           className="bottom-button"
