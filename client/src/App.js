@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { Route } from 'react-router-dom';
 import Home from './routers/Home';
-import Jangbi from './Pages/Jangbi';
+import {Models} from './Pages/Jangbi/Models';
 import SignIn from './Pages/Auth/SignIn';
 import SignUp from './Pages/Auth/SignUp';
 import styled from 'styled-components';
@@ -16,8 +16,8 @@ const App = () => {
       <Route exact path="/">
         <Home />
       </Route>
-      <Route path="/jangbi">
-        <Jangbi />
+      <Route path="/models">
+        <Models />
       </Route>
       <Route path="/signin">
         <SignIn />

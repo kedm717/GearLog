@@ -11,7 +11,7 @@
 }
 .header {
   height: 10%;
-  border: grey 1px solid;
+
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -24,6 +24,7 @@
   display: flex;
   flex: 8;
   flex-direction: row;
+  padding-top: 100px;
 }
 
 .left-current-side {
@@ -57,17 +58,5 @@
 }
 .current-movie img {
   margin: 30px;
-}
-
-.tag {
-  display: inline-block;
-  box-shadow: grey 2px 2px;
-  border-radius: 10px;
-  background-color: yellowgreen;
-  margin: 10px;
-  padding: 1px;
-}
-.tag-list {
-  margin: 10px;
-  padding: 5px;
+  padding-top: 100px;
 }

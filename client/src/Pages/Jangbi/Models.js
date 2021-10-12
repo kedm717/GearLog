@@ -1,9 +1,10 @@
 import {useState, useEffect} from 'react';
-import Header from '../../Components/Header';
+import Nav from '../../Components/Nav';
 import CurrentJangbi from './CurrentJangbi';
 import JangbiList from './JangbiList';
 import React from 'react'
 import mockJangbi from './mockJangbi'
+import './Jangbi.css';
 
 export const Models = () => {
 
@@ -22,7 +23,7 @@ export const Models = () => {
   return (
     <>
     <div className ="header">
-      <Header />
+      <Nav />
     </div>
     <div className ="body">
       <CurrentJangbi jangbi={show}/>
