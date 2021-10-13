@@ -29,19 +29,19 @@ const keys = [
   {
     id: 1,
     color: '#0984e3',
-    key: 'blu',
+    click: 'blu',
     src: blue,
   },
   {
     id: 2,
     color: '#ff5252',
-    key: 'red',
+    click: 'red',
     src: red,
   },
   {
     id: 3,
-    key: 'bwn',
     color: '#cc8e35',
+    click: 'bwn',
     src: brown,
   },
 ];
@@ -59,30 +59,31 @@ const Razer = ({ setDrop }) => {
           <img src={RazerBlack} alt="" />
         </div>
         <div>
-          <h1>제품명 : Razer Black Widow V3 Mini</h1>
-          {keys.map((el, id) => {
-            return (
-              <div>
-                <Button
-                  style={{ background: el.color }}
-                  className="key"
-                  key={id}
-                  onClick={() => playAudio(el.src)}
-                >
-                  {el.key}
-                </Button>
-              </div>
-            );
-          })}
+          <h1>
+            제품명 : Razer Black Widow V3 Mini
+            {keys.map((el) => {
+              return (
+                <div key={el.id}>
+                  <Button
+                    style={{ background: el.color }}
+                    className="key"
+                    onClick={() => playAudio(el.src)}
+                  >
+                    {el.click}
+                  </Button>
+                </div>
+              );
+            })}
+          </h1>
           <h2>제품 정보 및 영상보기!</h2>
           <iframe
             width="1000"
-            height="800"
+            height="600"
             src="https://www.youtube.com/embed/bJkhA_18FAg"
             title="YouTube video player"
-            frameborder="0"
+            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
+            allowFullScreen
           ></iframe>
         </div>
       </ul>

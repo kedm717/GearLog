@@ -51,12 +51,7 @@ const Nav = ({ isLogin, postLogout, drop, setDrop, urls }) => {
             Models
           </div>
 
-          <div
-            onClick={() => {
-              history.push('/view');
-            }}
-            className="navbar__munu__item"
-          >
+          <div onClick={() => {}} className="navbar__munu__item">
             Board
           </div>
 
@@ -74,7 +69,7 @@ const Nav = ({ isLogin, postLogout, drop, setDrop, urls }) => {
               onClick={() => {
                 postLogout();
               }}
-              class="navbar__munu__item"
+              className="navbar__munu__item"
             >
               SignOut
             </div>

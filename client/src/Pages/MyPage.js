@@ -17,9 +17,11 @@ const Div = styled.div`
 const MyPage = ({
   username,
   email,
-
+  setEmail,
   setIsLogin,
   authorization,
+  setPassword,
+  setUsername,
 }) => {
   const [changeName, setChangeName] = useState('');
   const [istrue, setIsTrue] = useState(false);
@@ -106,9 +108,13 @@ const MyPage = ({
       )
       .then((res) => {
         if (res.data.message === '현재 로그인 중이 아닙니다.') {
+          localStorage.clear();
+          setEmail('');
+          setPassword('');
+          setUsername('');
           setIsLogin(false);
           alert('로그아웃되었습니다');
-          localStorage.clear();
+
           history.push('/');
         }
       })
