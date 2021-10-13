@@ -12,6 +12,9 @@ import axios from 'axios';
 import Models from './routers/Models';
 import Logitech from './routers/Gear/Logitech';
 import styled from 'styled-components';
+import Dropdown from './Components/common/Dropdown';
+import Razer from './routers/Model/Gear/Razer';
+import Corsair from './routers/Model/Gear/Corsair';
 
 
 //유저정보를 데이터베이스에 저장하고 인증할수있는 코드를짜야된다
@@ -35,6 +38,7 @@ const App = () => {
   const [password, setPassword] = useState('');
   const [newPassword, setNewPassWord] = useState('');
   const [username, setUsername] = useState('');
+  const [dropdown, setDrop] = useState(true);
 
   useEffect(() => {
     const url = new URL(window.location.href);
@@ -259,9 +263,16 @@ const App = () => {
         GearLog
       </Div>
 
-      <Nav isLogin={isLogin} postLogout={postLogout} />
+      <Nav
+        setDrop={setDrop}
+        drop={dropdown}
+        isLogin={isLogin}
+        postLogout={postLogout}
+      />
+      {!dropdown ? <Models /> : null}
+
       <Route exact path="/">
-        <Home isLogin={isLogin} postLogout={postLogout} />
+        <Home claseeName="home" isLogin={isLogin} postLogout={postLogout} />
       </Route>
       <Route path="/models">
         <Models />
@@ -297,12 +308,17 @@ const App = () => {
         />
       </Route>
 
-      <Route path="/models">
-        <Models />
-      </Route>
+
       <Route path="/models/logi">
-        <Logitech />
+        <Logitech drop={dropdown} setDrop={setDrop} />
       </Route>
+      <Route path="/models/razer">
+        <Razer drop={dropdown} setDrop={setDrop} />
+      </Route>
+      <Route path="/models/corsair">
+        <Corsair drop={dropdown} setDrop={setDrop} />
+      </Route>
+
     </div>
   );
 };
